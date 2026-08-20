@@ -29,9 +29,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "AstraX | Concentrated Liquidity on Stellar",
+  title: "OrbitX | Concentrated Liquidity on Stellar",
   description:
-    "AstraX is a concentrated liquidity DEX for XLM and USDC, built on Stellar Soroban.",
+    "OrbitX is a concentrated liquidity DEX for XLM and USDC, built on Stellar Soroban.",
   icons: {
     icon: "/astrax-chrome-a.png",
   },

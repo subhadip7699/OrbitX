@@ -1,5 +1,5 @@
-import { AstraxLanding } from "@/components/landing/AstraxLanding";
+import { OrbitxLanding } from "@/components/landing/OrbitxLanding";
 
 export default function RootPage() {
-  return <AstraxLanding />;
+  return <OrbitxLanding />;
 }

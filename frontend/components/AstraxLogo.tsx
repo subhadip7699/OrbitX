@@ -19,7 +19,7 @@ export function LogoMark({ className = "w-8 h-8", size }: LogoProps) {
       style={style}
     >
       <defs>
-        <linearGradient id="astrax-logo-grad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+        <linearGradient id="orbitx-logo-grad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor="#48A7FF" />
           <stop offset="100%" stopColor="#1476FF" />
         </linearGradient>
@@ -27,7 +27,7 @@ export function LogoMark({ className = "w-8 h-8", size }: LogoProps) {
       {/* 4-pointed stellar star */}
       <path
         d="M16 2.5L19.2 12.8L29.5 16L19.2 19.2L16 29.5L12.8 19.2L2.5 16L12.8 12.8L16 2.5Z"
-        fill="url(#astrax-logo-grad)"
+        fill="url(#orbitx-logo-grad)"
       />
       {/* Core highlight */}
       <circle cx="16" cy="16" r="2.5" fill="#FFFFFF" />
@@ -43,7 +43,7 @@ export function LogoMark({ className = "w-8 h-8", size }: LogoProps) {
   );
 }
 
-export function AstraxLogo({
+export function OrbitxLogo({
   href = "/",
   markSize = 32,
   showText = true,
@@ -62,12 +62,13 @@ export function AstraxLogo({
       </div>
       {showText && (
         <span className="font-semibold tracking-[0.2em] text-white text-sm md:text-[15px] uppercase">
-          ASTRAX
+          ORBITX
         </span>
       )}
     </Link>
   );
 }
 
-export default AstraxLogo;
-export const LuminaLogo = AstraxLogo;
+export const AstraxLogo = OrbitxLogo;
+export default OrbitxLogo;
+export const LuminaLogo = OrbitxLogo;
