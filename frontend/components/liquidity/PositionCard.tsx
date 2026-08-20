@@ -11,7 +11,6 @@ import { useToast } from "@/components/Toast";
 import { useState } from "react";
 import { useTxTracker } from "@/context/TxTrackerContext";
 import { useQueryClient } from "@tanstack/react-query";
-import InfoTooltip from "@/components/education/InfoTooltip";
 
 interface Props {
   position: Position;
@@ -154,27 +153,15 @@ export default function PositionCard({ position, onRefresh }: Props) {
           {isPositionClosed
             ? "Closed"
             : position.inRange
-            ? "In Range"
-            : "Out of Range"}
-          {!isPositionClosed && (
-            <span className="ml-1.5 align-middle">
-              <InfoTooltip
-                content={
-                  position.inRange
-                    ? "Your liquidity is currently active and can earn trading fees."
-                    : "The market price has moved outside your selected range. Your position remains open but is not currently earning trading fees."
-                }
-              />
-            </span>
-          )}
+            ? "✓ In Range"
+            : "⚠ Out of Range"}
         </span>
       </div>
 
       {/* Price range */}
       <div className="bg-white/[0.02] border border-white/10 rounded-xl p-3 sm:p-4">
-        <p className="text-white/40 text-[11px] font-semibold uppercase tracking-wider mb-2 inline-flex items-center gap-1.5">
+        <p className="text-white/40 text-[11px] font-semibold uppercase tracking-wider mb-2">
           Price Range (USDC per XLM)
-          <InfoTooltip content="Your deposited assets earn trading fees while the market price remains inside this range." />
         </p>
         <div className="flex items-center justify-between text-sm">
           <div>

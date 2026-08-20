@@ -8,7 +8,7 @@ import { PROFILE_CONTRACT_ADDRESS } from "@/lib/stellar/contracts";
 
 export default function UserProfileCard() {
   const { address } = useWallet();
-  const { nickname, isAvailable, isLoading, isRefetching, updateProfile, isUpdating } = useProfile(address);
+  const { nickname, isLoading, isRefetching, updateProfile, isUpdating } = useProfile(address);
   const [inputName, setInputName] = useState("");
 
   const [prevNickname, setPrevNickname] = useState<string | null>(null);
@@ -18,7 +18,7 @@ export default function UserProfileCard() {
     setInputName(nickname);
   }
 
-  if (!address || (!isLoading && !isAvailable)) return null;
+  if (!address) return null;
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();

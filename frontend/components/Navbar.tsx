@@ -5,8 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import WalletButton from "@/components/WalletButton";
-import { CircleHelp, Menu, X } from "lucide-react";
-import { useOnboarding } from "@/components/onboarding/OnboardingProvider";
+import { Menu, X } from "lucide-react";
 
 export function LogoMark({ className = "w-5 h-5", size }: { className?: string; size?: number }) {
   const style = size ? { width: size, height: size } : undefined;
@@ -36,7 +35,6 @@ const NAV_LINKS = [
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { openGuide } = useOnboarding();
 
   const isLinkActive = (path: string) => {
     if (path === "/") return pathname === "/";
@@ -55,7 +53,7 @@ export default function Navbar() {
         <Link
           href="/"
           className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black shrink-0 hover:scale-105 transition-transform duration-200 shadow-md group cursor-pointer"
-          title="LuminaDex Home"
+          title="AstraX Home"
         >
           <LogoMark className="w-6 h-6 text-black group-hover:rotate-12 transition-transform duration-300" />
         </Link>
@@ -68,7 +66,6 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                data-tour={link.label.toLowerCase()}
                 className="relative text-sm font-medium transition-colors duration-200 cursor-pointer no-underline"
                 style={{
                   color: active ? "#ffffff" : "rgba(255, 255, 255, 0.7)",
@@ -90,18 +87,7 @@ export default function Navbar() {
 
         {/* Right: Action Pill (Wallet Button) */}
         <div className="hidden sm:flex items-center gap-2">
-          <button
-            type="button"
-            onClick={openGuide}
-            className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 text-sm font-semibold text-white/70 transition hover:border-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
-            aria-label="Open LuminaDex beginner guide"
-          >
-            <CircleHelp className="h-4 w-4" />
-            <span className="hidden md:inline">Learn</span>
-          </button>
-          <div data-tour="wallet">
-            <WalletButton />
-          </div>
+          <WalletButton />
         </div>
 
         {/* Mobile Hamburger Toggle Button */}
@@ -132,7 +118,6 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  data-tour={link.label.toLowerCase()}
                   onClick={() => setMobileOpen(false)}
                   className="px-4 py-3 rounded-2xl flex items-center justify-between text-base font-medium transition-colors no-underline"
                   style={{
@@ -146,20 +131,7 @@ export default function Navbar() {
               );
             })}
             <div className="pt-3 border-t border-white/10 flex justify-center">
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileOpen(false);
-                  openGuide();
-                }}
-                className="mr-2 inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 text-sm font-semibold text-white/70"
-              >
-                <CircleHelp className="h-4 w-4" />
-                Learn
-              </button>
-              <div data-tour="wallet">
-                <WalletButton />
-              </div>
+              <WalletButton />
             </div>
           </motion.div>
         )}
