@@ -32,12 +32,21 @@ A CLMM DEX allows Liquidity Providers (LPs) to deposit liquidity into **discrete
 | **Live Demo** | [https://orbit-x-two.vercel.app/](https://orbit-x-two.vercel.app//) |
 | 📜 **Contract Address (Testnet)** | `CCYBX2FOT5RWL6T2CQROAA3ZECYNNE3PSJ7WQXULU6AJOCCK6YHSTH32` |
 | 🔍 **Proof of 62+ Wallet Interactions** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCYBX2FOT5RWL6T2CQROAA3ZECYNNE3PSJ7WQXULU6AJOCCK6YHSTH32) |
+| 🔗 **Proof of 105+ On-Chain Position Manager Interactions** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CC6IBQ7VNVK7CQYIZX47NJPDH5DL5ISQSA26BLBZXVMVEQ3QGUAZDREI) |
 | 📝 **User Feedback** | [View Spreadsheet](https://docs.google.com/spreadsheets/d/1Wiyhyp5v6rL02uJWgC61gmYGV2KzKw5G1KIe3Ec0NpM/edit?usp=sharing) |
 | 📊 **Monitoring & Analytics Dashboard** | [/monitoring & Analytics](#monitoring-dashboard) |
 | 📝 **Smart Contract Activity (62+ Wallet)** | [/Smart Contract Activity](#smart-contract-activity) |
 
 ---
+### 📈 Solid Evidence of Continuous OrbitX Growth [check it ](#-105-on-chain-transactions)
 
+OrbitX is showing clear and measurable growth through **105+ on-chain transactions** and **62+ smart contract + wallet interactions on Stellar Testnet**. This activity demonstrates that the platform is not only being actively tested and used, but is also continuously evolving through real blockchain interactions.
+
+Alongside this on-chain growth, OrbitX has been improved based on **real user feedback**, including better onboarding, clearer transaction flows, stronger liquidity protection, improved pricing accuracy, responsive UI enhancements, and in-app feedback support.
+
+> 🚀 **These metrics provide solid evidence that OrbitX is growing day by day — with increasing on-chain activity, active wallet participation, and continuous product improvements driven by real users.**
+
+<br/>
 
 ## ✅ Level 5 Submission Checklist
 
@@ -51,7 +60,7 @@ All required Level 5 deliverables have been completed and verified below.
 | **Demo Video** | ✅ Complete | 🎥 [Watch Demo Video](https://drive.google.com/file/d/1t2fU7E7AqFaGoWMrFVGRmSH8xdBBTyz8/view?usp=sharing) |
 | **Proof of 50+ Test Users** | ✅ Complete | 👥 [50+ Verified User Responses](https://docs.google.com/spreadsheets/d/1Wiyhyp5v6rL02uJWgC61gmYGV2KzKw5G1KIe3Ec0NpM/edit?usp=sharing) |
 | **Analytics & Transaction Activity** | ✅ Complete | 📈 See [Smart Contract Activity](#smart-contract-activity) and [Analytics Dashboard](#monitoring-dashboard) |
-| **User Feedback & Product Iterations** | ✅ Complete | 📈 See [Improvements Based on User Feedback](#-user-feedback--improvements) |
+| **User Feedback & Product Iterations** | ✅ Complete | 📈 See [Improvements Based on User Feedback](#-level-5-user-onboarding) |
 | **User Feedback Collection Form** | ✅ Complete | 📝 [Open Feedback Form](https://forms.gle/gEEYjqmHRHJ9u9Rm8) |
 | **CI/CD Pipeline** | ✅ Complete | ⚙️ GitHub Actions configured — see [CI/CD Pipeline](#-cicd-github-actions--githubworkflows) |
 
@@ -59,6 +68,23 @@ All required Level 5 deliverables have been completed and verified below.
 >
 > OrbitX includes a live production deployment, 30+ meaningful commits, verified testing from 50+ users, documented feedback-driven iterations, analytics and smart contract activity proof, automated CI/CD, a complete pitch deck, and a working demo video.
 ---
+
+
+# 🔗 105+ On-Chain Transactions
+ 
+OrbitX has recorded **105+ on-chain interactions through the Position Manager contract on Stellar Testnet**, demonstrating active contract usage, liquidity operations, and continuous real-world platform testing.
+
+# 🔗 **105+ On-chain Entries**  [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CC6IBQ7VNVK7CQYIZX47NJPDH5DL5ISQSA26BLBZXVMVEQ3QGUAZDREI)
+
+<img width="1906" height="955" alt="Screenshot 2026-08-22 000056" src="https://github.com/user-attachments/assets/becf11a3-a579-4302-874e-bb809911bbe3" />
+
+## Smart Contract Activity(62+ wallet intractions) 
+
+## 🔍 **Proof of 62+ Wallet Interactions**  [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCYBX2FOT5RWL6T2CQROAA3ZECYNNE3PSJ7WQXULU6AJOCCK6YHSTH32) 
+
+<img width="1915" height="916" alt="image" src="https://github.com/user-attachments/assets/2993eb1c-5891-4da3-953b-5d0a1a2399fb" />
+
+> *📈 This growing on-chain activity shows that OrbitX is evolving day by day through continuous testing, real user interaction, and ongoing product improvements.*
 ## 🚀 Deployed Contracts (Stellar Testnet)
 
 The `contracts/` directory was reorganized as a **Cargo workspace** with all contracts as members. Compilations and optimizations were performed, followed by fresh deployments using the `rishii` account on Stellar Testnet.
@@ -84,7 +110,7 @@ The `contracts/` directory was reorganized as a **Cargo workspace** with all con
 
 > USDC is a SAC wrapping the classic asset issued by the address above — the G-address is used only for building `change_trust` trustline transactions, never for Soroban token calls.
 
-## 👥 Level 4 User Onboarding
+## 👥 Level 5 User Onboarding
 
 🔗 **Google Form:** [Google Form](https://forms.gle/WLhQVMLvUevVbFB2A)
 📊 **Response Sheet:** [Response Sheet](https://docs.google.com/spreadsheets/d/1Wiyhyp5v6rL02uJWgC61gmYGV2KzKw5G1KIe3Ec0NpM/edit?usp=sharing)
@@ -164,6 +190,7 @@ Key improvements include:
     width="48%"
   />
 </div>
+
 ## 🧪 CI/CD (GitHub Actions — `.github/workflows/`)
 
 | Workflow | Trigger | Steps |
@@ -172,8 +199,6 @@ Key improvements include:
 | **`deploy.yml`** | Push to `main` + manual dispatch | **deploy-contract:** build wasm → `stellar contract deploy` (factory) on testnet.<br>**deploy-frontend:** `needs: deploy-contract` → `npm run build` with `NEXT_PUBLIC_*` → `vercel deploy --prod`. Deploy steps skip cleanly when secrets are absent. |
 
 
-## Smart Contract Activity 
-<img width="1919" height="906" alt="image" src="https://github.com/user-attachments/assets/e6d9c617-8bef-4212-ae1a-85f7ba733199" />
 
 
 | Page | What it does |
