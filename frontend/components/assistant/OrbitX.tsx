@@ -45,7 +45,7 @@ type ChatMessage = {
   actions?: AssistantAction[];
 };
 
-const HINT_KEY = "luminadex_assistant_hint_seen";
+const HINT_KEY = "Orbitx_assistant_hint_seen";
 const FEEDBACK_CATEGORIES = [
   "General feedback",
   "Bug",
@@ -102,8 +102,8 @@ export default function OrbitX() {
       setOpen(true);
     }
 
-    window.addEventListener("lumina:open-assistant", handleOpenAssistant);
-    return () => window.removeEventListener("lumina:open-assistant", handleOpenAssistant);
+    window.addEventListener("Orbitx:open-assistant", handleOpenAssistant);
+    return () => window.removeEventListener("Orbitx:open-assistant", handleOpenAssistant);
   }, []);
 
   useEffect(() => {
@@ -141,20 +141,20 @@ export default function OrbitX() {
               className="mb-3 max-w-[220px] rounded-2xl border border-white/10 bg-[#11121b]/95 p-3 text-sm text-white/75 shadow-2xl backdrop-blur-xl"
             >
               <div className="font-bold text-white">Need help?</div>
-              <div className="mt-0.5 text-xs text-white/55">Ask Lumina anytime.</div>
+              <div className="mt-0.5 text-xs text-white/55">Ask Orbitx anytime.</div>
             </motion.div>
           )}
         </AnimatePresence>
         <button
           type="button"
-          aria-label="Ask Lumina"
+          aria-label="Ask Orbitx"
           onClick={() => openAssistant()}
           className="group inline-flex h-12 items-center gap-2 rounded-full border border-white/12 bg-[#10121c]/92 px-4 text-sm font-bold text-white shadow-[0_14px_44px_rgba(0,0,0,0.45)] backdrop-blur-xl transition hover:border-cyan-300/35 hover:bg-[#151827] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70 sm:h-13"
         >
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition group-hover:scale-105">
             <Sparkles className="h-4 w-4" />
           </span>
-          <span className="hidden sm:inline">Ask Lumina</span>
+          <span className="hidden sm:inline">Ask Orbitx</span>
         </button>
       </div>
 
@@ -163,7 +163,7 @@ export default function OrbitX() {
           <div className="fixed inset-0 z-[140] flex items-end justify-center sm:items-end sm:justify-end sm:p-6">
             <motion.button
               type="button"
-              aria-label="Close Lumina Assistant"
+              aria-label="Close Orbitx Assistant"
               className="absolute inset-0 bg-black/45 backdrop-blur-[2px] sm:bg-transparent sm:backdrop-blur-0"
               onClick={() => setOpen(false)}
               initial={{ opacity: 0 }}
@@ -173,7 +173,7 @@ export default function OrbitX() {
             <motion.section
               role="dialog"
               aria-modal="true"
-              aria-labelledby="lumina-assistant-title"
+              aria-labelledby="Orbitx-assistant-title"
               initial={{ opacity: 0, y: 28, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 24, scale: 0.98 }}
@@ -193,12 +193,12 @@ export default function OrbitX() {
                     </button>
                   )}
                   <div>
-                    <h2 id="lumina-assistant-title" className="flex items-center gap-2 text-base font-extrabold">
+                    <h2 id="Orbitx-assistant-title" className="flex items-center gap-2 text-base font-extrabold">
                       <Sparkles className="h-4 w-4 text-cyan-200" />
-                      Lumina Assistant
+                      Orbitx Assistant
                     </h2>
                     <p className="mt-0.5 text-xs leading-relaxed text-white/48">
-                      Get help, learn LuminaDex, or share feedback.
+                      Get help, learn OrbitX, or share feedback.
                     </p>
                   </div>
                 </div>
@@ -220,7 +220,7 @@ export default function OrbitX() {
                     setMode("chat");
                     window.setTimeout(() => {
                       window.dispatchEvent(
-                        new CustomEvent("lumina:ask", { detail: { question } })
+                        new CustomEvent("Orbitx:ask", { detail: { question } })
                       );
                     }, 0);
                   }}
@@ -240,7 +240,7 @@ export default function OrbitX() {
               {mode === "rating" && (
                 <FeedbackForm
                   type="rating"
-                  title="Rate LuminaDex"
+                  title="Rate OrbitX"
                   prompt="Thanks! What made you choose this rating?"
                   submitLabel="Submit Rating"
                   context={feedbackContext}
@@ -251,7 +251,7 @@ export default function OrbitX() {
               {mode === "feature" && (
                 <FeedbackForm
                   type="feature"
-                  title="What would make LuminaDex better?"
+                  title="What would make OrbitX better?"
                   prompt="Tell us the feature you'd like to see..."
                   secondaryPrompt="Why would this be useful?"
                   submitLabel="Submit Suggestion"
@@ -300,7 +300,7 @@ function AssistantHome({
     { label: "How does Liquidity work?", icon: Bot, onClick: () => onQuestion("How does liquidity work?") },
     { label: "Explain this page", icon: CircleHelp, onClick: () => onQuestion("Explain this page") },
     { label: "Ask a question", icon: Send, onClick: () => onMode("chat") },
-    { label: "Rate LuminaDex", icon: Sparkles, onClick: () => onMode("rating") },
+    { label: "Rate OrbitX", icon: Sparkles, onClick: () => onMode("rating") },
     { label: "Suggest a feature", icon: Lightbulb, onClick: () => onMode("feature") },
     { label: "Report a problem", icon: Bug, onClick: () => onMode("bug") },
     { label: "Share feedback", icon: MessageCircle, onClick: () => onMode("feedback") },
@@ -310,7 +310,7 @@ function AssistantHome({
     <div className="flex-1 overflow-y-auto p-4">
       <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
         <p className="text-xl font-extrabold">Hi</p>
-        <p className="mt-1 text-sm text-white/58">How can I help you with LuminaDex?</p>
+        <p className="mt-1 text-sm text-white/58">How can I help you with OrbitX?</p>
       </div>
       <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
         {actions.map(({ label, icon: Icon, onClick }) => (
@@ -371,7 +371,7 @@ function AssistantChat({ pathname }: { pathname: string }) {
           {
             id: crypto.randomUUID(),
             role: "assistant",
-            content: "I couldn't answer that right now, but LuminaDex is still working normally. Try asking again in a moment.",
+            content: "I couldn't answer that right now, but OrbitX is still working normally. Try asking again in a moment.",
           },
         ]);
       } finally {
@@ -386,8 +386,8 @@ function AssistantChat({ pathname }: { pathname: string }) {
       const question = (event as CustomEvent<{ question?: string }>).detail?.question;
       if (question) void ask(question);
     }
-    window.addEventListener("lumina:ask", handleAsk);
-    return () => window.removeEventListener("lumina:ask", handleAsk);
+    window.addEventListener("Orbitx:ask", handleAsk);
+    return () => window.removeEventListener("Orbitx:ask", handleAsk);
   }, [ask]);
 
   useEffect(() => {
@@ -407,7 +407,7 @@ function AssistantChat({ pathname }: { pathname: string }) {
         ))}
         {loading && (
           <div className="w-fit rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-white/55">
-            Lumina is typing...
+            Orbitx is typing...
           </div>
         )}
       </div>
@@ -416,7 +416,7 @@ function AssistantChat({ pathname }: { pathname: string }) {
           <input
             value={input}
             onChange={(event) => setInput(event.target.value)}
-            placeholder="Ask about LuminaDex..."
+            placeholder="Ask about OrbitX..."
             className="min-w-0 flex-1 bg-transparent px-2 text-sm text-white outline-none placeholder:text-white/35"
             maxLength={320}
           />
@@ -447,12 +447,12 @@ function AssistantMessage({ message }: { message: ChatMessage }) {
     <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
       <div
         className={`max-w-[88%] rounded-2xl border px-3 py-2 text-sm leading-relaxed ${isUser
-            ? "border-cyan-300/25 bg-cyan-300/12 text-white"
-            : "border-white/10 bg-white/[0.04] text-white/72"
+          ? "border-cyan-300/25 bg-cyan-300/12 text-white"
+          : "border-white/10 bg-white/[0.04] text-white/72"
           }`}
       >
         <div className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/35">
-          {isUser ? "You" : "Lumina"}
+          {isUser ? "You" : "Orbitx"}
         </div>
         <div className="mt-1">{message.content}</div>
         {message.steps && (
@@ -620,7 +620,7 @@ function SuccessState({
       <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/58">
         {queued
           ? "We couldn't submit your feedback right now. Your feedback has been kept locally. Please try again later."
-          : "Thanks for helping us improve LuminaDex."}
+          : "Thanks for helping us improve OrbitX."}
       </p>
       <div className="mt-6 flex w-full flex-col gap-2 sm:flex-row">
         <button type="button" onClick={onAsk} className="btn-primary min-h-11 flex-1 px-4 text-sm font-bold">

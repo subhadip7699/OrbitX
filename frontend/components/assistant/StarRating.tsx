@@ -15,7 +15,7 @@ export default function StarRating({
   const [hovered, setHovered] = useState(0);
   const active = hovered || value;
   return (
-    <div className="flex items-center gap-1.5" role="radiogroup" aria-label="Rate LuminaDex">
+    <div className="flex items-center gap-1.5" role="radiogroup" aria-label="Rate OrbitX">
       {[1, 2, 3, 4, 5].map((star) => (
         <button
           key={star}
@@ -31,9 +31,8 @@ export default function StarRating({
           className={`${compact ? "h-8 w-8" : "h-10 w-10"} inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.035] transition hover:border-yellow-200/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200/70`}
         >
           <Star
-            className={`${compact ? "h-4 w-4" : "h-5 w-5"} ${
-              star <= active ? "fill-yellow-200 text-yellow-200" : "text-white/35"
-            }`}
+            className={`${compact ? "h-4 w-4" : "h-5 w-5"} ${star <= active ? "fill-yellow-200 text-yellow-200" : "text-white/35"
+              }`}
           />
         </button>
       ))}
