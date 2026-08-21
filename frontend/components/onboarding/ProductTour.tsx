@@ -21,7 +21,7 @@ const TOUR_STEPS = [
   {
     target: "[data-tour='swap']",
     title: "Swap",
-    message: "Exchange XLM and USDC using LuminaDex liquidity pools.",
+    message: "Exchange XLM and USDC using OrbitX liquidity pools.",
     href: "/swap",
   },
   {
@@ -183,9 +183,8 @@ export default function ProductTour({ open, onFinish, onClose }: ProductTourProp
                 {TOUR_STEPS.map((item, index) => (
                   <span
                     key={item.title}
-                    className={`h-1.5 rounded-full transition-all ${
-                      index === stepIndex ? "w-5 bg-cyan-300" : "w-1.5 bg-white/20"
-                    }`}
+                    className={`h-1.5 rounded-full transition-all ${index === stepIndex ? "w-5 bg-cyan-300" : "w-1.5 bg-white/20"
+                      }`}
                   />
                 ))}
               </div>
@@ -204,7 +203,7 @@ export default function ProductTour({ open, onFinish, onClose }: ProductTourProp
                   className="btn-primary inline-flex items-center gap-2 px-4 py-2 text-xs font-bold"
                 >
                   {stepIndex === TOUR_STEPS.length - 1
-                    ? "Start Using LuminaDex"
+                    ? "Start Using OrbitX"
                     : "Next"}
                 </button>
               )}

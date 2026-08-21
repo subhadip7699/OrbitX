@@ -7,6 +7,28 @@ export const MAX_TICK_USABLE = 443630;
 export const MIN_SQRT_RATIO = 72057594037927936n;
 export const MAX_SQRT_RATIO = 4722366482869645213696n;
 export const TICK_SPACING = 10;
+const U128_MAX = (1n << 128n) - 1n;
+const TICK_SQRT_FACTORS = [
+  18445821805675392311n,
+  18444899583751176498n,
+  18443055278223354162n,
+  18439367220385604838n,
+  18431993317065449817n,
+  18417254355718160513n,
+  18387811781193591352n,
+  18329067761203520168n,
+  18212142134806087854n,
+  17980523815641551639n,
+  17526086738831147013n,
+  16651378430235024244n,
+  15030750278693429944n,
+  12247334978882834399n,
+  8131365268884726200n,
+  3584323654723342297n,
+  696457651847846528n,
+  26294789957452057n,
+  37481735321082n,
+] as const;
 
 // ── Float helpers (display-only, mirrors contract math) ──────────────────────
 
@@ -120,6 +142,39 @@ export function priceToSqrtPriceX64(price: number): bigint {
   if (price <= 0) return 0n;
   const sqrtPrice = Math.sqrt(price);
   return BigInt(Math.floor(sqrtPrice * Number(Q64)));
+}
+
+function mulShift64(a: bigint, b: bigint): bigint {
+  const aHi = a >> 64n;
+  const aLo = a & 0xffffffffffffffffn;
+  return aHi * b + ((aLo * b) >> 64n);
+}
+
+export function tickToSqrtPriceX64(tick: number): bigint {
+  if (tick < MIN_TICK || tick > MAX_TICK) {
+    throw new Error("tick out of bounds");
+  }
+
+  const absTick = Math.abs(tick);
+  let ratio = Q64;
+
+  for (let i = 0; i < TICK_SQRT_FACTORS.length; i++) {
+    if ((absTick & (1 << i)) !== 0) {
+      ratio = mulShift64(ratio, TICK_SQRT_FACTORS[i]);
+    }
+  }
+
+  if (tick > 0) {
+    ratio =
+      U128_MAX / ratio +
+      (U128_MAX % ratio === ratio - 1n ? 1n : 0n);
+  }
+
+  return ratio < MIN_SQRT_RATIO
+    ? MIN_SQRT_RATIO
+    : ratio >= MAX_SQRT_RATIO
+      ? MAX_SQRT_RATIO - 1n
+      : ratio;
 }
 
 export function sqrtPriceX64ToPrice(sqrtPriceX64: bigint): number {

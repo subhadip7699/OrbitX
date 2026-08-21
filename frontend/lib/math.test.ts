@@ -5,6 +5,7 @@ import {
   formatAmount,
   formatUsd,
   tickToPrice,
+  tickToSqrtPriceX64,
   roundTick,
 } from "./math";
 
@@ -48,6 +49,12 @@ describe("formatUsd", () => {
 describe("tick math", () => {
   it("maps tick 0 to price 1.0", () => {
     expect(tickToPrice(0)).toBeCloseTo(1, 10);
+  });
+
+  it("matches the pool contract tick-to-sqrt constants", () => {
+    expect(tickToSqrtPriceX64(0)).toBe(18_446_744_073_709_551_616n);
+    expect(tickToSqrtPriceX64(17_560)).toBe(44_382_443_956_979_255_763n);
+    expect(tickToSqrtPriceX64(19_410)).toBe(48_683_460_884_456_643_464n);
   });
 
   it("rounds a tick to the nearest spacing", () => {

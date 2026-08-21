@@ -11,7 +11,7 @@ import {
 import WelcomeModal from "@/components/onboarding/WelcomeModal";
 import ProductTour from "@/components/onboarding/ProductTour";
 
-const STORAGE_KEY = "luminadex_onboarding_completed";
+const STORAGE_KEY = "OrbitX_onboarding_completed";
 
 interface OnboardingContextType {
   openGuide: () => void;

@@ -87,8 +87,61 @@ export function parseStellarError(err: Error | HorizonErrorResponse | null | und
 
   // 3. Insufficient XLM Balance
   if (
+    rawString.includes("insufficient usdc") ||
+    rawString.includes("usdc balance")
+  ) {
+    return new StellarError({
+      type: "INSUFFICIENT_BALANCE",
+      title: "Insufficient USDC Balance",
+      message: "Your connected account does not have enough USDC for this transaction.",
+      recovery: "Reduce the USDC amount or add Testnet USDC to your wallet, then try again.",
+    }, err);
+  }
+
+  if (
+    rawString.includes("token authorization failed") ||
+    rawString.includes("allowance") ||
+    rawString.includes("authorization") ||
+    rawString.includes("auth")
+  ) {
+    return new StellarError({
+      type: "UNKNOWN",
+      title: "Token Authorization Failed",
+      message: "The token approval or Soroban authorization required for this transaction failed.",
+      recovery: "Approve the token request in Freighter and make sure the wallet is connected to Stellar Testnet.",
+    }, err);
+  }
+
+  if (
+    rawString.includes("invalid liquidity") ||
+    rawString.includes("zero liquidity")
+  ) {
+    return new StellarError({
+      type: "UNKNOWN",
+      title: "Invalid Liquidity Amount",
+      message: "The selected amounts and price range do not produce a valid liquidity position.",
+      recovery: "Review the XLM/USDC amounts and choose a valid price range before trying again.",
+    }, err);
+  }
+
+  if (
+    rawString.includes("invalid price range") ||
+    rawString.includes("bad lower tick") ||
+    rawString.includes("bad upper tick") ||
+    rawString.includes("tick order")
+  ) {
+    return new StellarError({
+      type: "UNKNOWN",
+      title: "Invalid Price Range",
+      message: "The selected price range is invalid for the pool tick spacing.",
+      recovery: "Choose a range where the lower tick is below the upper tick and both align to pool spacing.",
+    }, err);
+  }
+
+  if (
     rawString.includes("insufficient") ||
     rawString.includes("underfunded") ||
+    rawString.includes("resulting balance is not within the allowed range") ||
     rawString.includes("op_underfunded") ||
     rawString.includes("low balance") ||
     rawString.includes("tx_insufficient_balance")
@@ -170,6 +223,15 @@ export function parseStellarError(err: Error | HorizonErrorResponse | null | und
       title: "Wallet Disconnected",
       message: "Your wallet is not connected to this application.",
       recovery: "Click 'Connect Wallet' at the top of the page, authorize the connection, and try the operation again.",
+    }, err);
+  }
+
+  if (rawString.includes("simulation error") || rawString.includes("simulation failed")) {
+    return new StellarError({
+      type: "UNKNOWN",
+      title: "Transaction Simulation Failed",
+      message: "The transaction did not pass Stellar Soroban simulation.",
+      recovery: "Review the deposit amounts, balances, token approvals, and price range, then try again.",
     }, err);
   }
 

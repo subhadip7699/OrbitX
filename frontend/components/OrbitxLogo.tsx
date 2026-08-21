@@ -1,2 +1,2 @@
-export * from "./AstraxLogo";
-export { default } from "./AstraxLogo";
+export * from "./OrbitX";
+export { default } from "./OrbitX";

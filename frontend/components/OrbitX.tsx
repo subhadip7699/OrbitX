@@ -69,6 +69,5 @@ export function OrbitxLogo({
   );
 }
 
-export const AstraxLogo = OrbitxLogo;
 export default OrbitxLogo;
 

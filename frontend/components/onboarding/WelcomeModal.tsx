@@ -78,7 +78,7 @@ export default function WelcomeModal({
                 id="onboarding-title"
                 className="mt-4 text-2xl font-extrabold tracking-tight text-white sm:text-3xl"
               >
-                Welcome to LuminaDex
+                Welcome to OrbitX
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-white/60">
                 Trade and provide concentrated liquidity on Stellar with a

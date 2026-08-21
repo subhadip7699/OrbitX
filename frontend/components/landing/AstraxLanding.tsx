@@ -18,7 +18,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import WalletButton from "@/components/WalletButton";
-import { LogoMark } from "@/components/AstraxLogo";
+import { LogoMark } from "@/components/OrbitX";
 
 const NAV_LINKS = [
   { label: "SWAP", href: "/swap" },
