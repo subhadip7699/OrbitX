@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import WalletButton from "@/components/WalletButton";
 import { Menu, X } from "lucide-react";
+import Tooltip from "@/components/ui/tooltip";
 
 export function LogoMark({ className = "w-5 h-5", size }: { className?: string; size?: number }) {
   const style = size ? { width: size, height: size } : undefined;
@@ -41,6 +42,13 @@ export default function Navbar() {
     return pathname.startsWith(path);
   };
 
+  const tourTargetFor = (href: string) => {
+    if (href === "/swap") return "swap";
+    if (href === "/liquidity") return "liquidity";
+    if (href === "/portfolio") return "portfolio";
+    return undefined;
+  };
+
   return (
     <header className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-[960px]">
       <motion.nav
@@ -50,13 +58,15 @@ export default function Navbar() {
         className="w-full bg-[#18181b]/90 backdrop-blur-xl border border-white/15 rounded-full p-2.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex items-center justify-between transition-all"
       >
         {/* Left: White Circle Planet Logo */}
-        <Link
-          href="/"
-          className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black shrink-0 hover:scale-105 transition-transform duration-200 shadow-md group cursor-pointer"
-          title="OrbitX Home"
-        >
-          <LogoMark className="w-6 h-6 text-black group-hover:rotate-12 transition-transform duration-300" />
-        </Link>
+        <Tooltip content="OrbitX Home" side="bottom">
+          <Link
+            href="/"
+            aria-label="OrbitX Home"
+            className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black shrink-0 hover:scale-105 transition-transform duration-200 shadow-md group cursor-pointer"
+          >
+            <LogoMark className="w-6 h-6 text-black group-hover:rotate-12 transition-transform duration-300" />
+          </Link>
+        </Tooltip>
 
         {/* Center: Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8 px-4">
@@ -66,6 +76,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                data-tour={tourTargetFor(link.href)}
                 className="relative text-sm font-medium transition-colors duration-200 cursor-pointer no-underline"
                 style={{
                   color: active ? "#ffffff" : "rgba(255, 255, 255, 0.7)",
@@ -86,7 +97,7 @@ export default function Navbar() {
         </div>
 
         {/* Right: Action Pill (Wallet Button) */}
-        <div className="hidden sm:flex items-center gap-2">
+        <div className="hidden sm:flex items-center gap-2" data-tour="wallet">
           <WalletButton />
         </div>
 
@@ -118,6 +129,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  data-tour={tourTargetFor(link.href)}
                   onClick={() => setMobileOpen(false)}
                   className="px-4 py-3 rounded-2xl flex items-center justify-between text-base font-medium transition-colors no-underline"
                   style={{
@@ -130,7 +142,7 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <div className="pt-3 border-t border-white/10 flex justify-center">
+            <div className="pt-3 border-t border-white/10 flex justify-center" data-tour="wallet">
               <WalletButton />
             </div>
           </motion.div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Tooltip from "@/components/ui/tooltip";
 
 interface Props {
   rate: string;
@@ -62,18 +63,23 @@ export default function PriceInfo({
         <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
           <span style={{ color: "var(--text-primary)", fontSize: "13px", fontWeight: 600 }}>{rate}</span>
           {lastFetchedAt !== undefined && (
-            <span
-              title={`Price updated ${secondsAgo}s ago`}
-              style={{
-                display: "inline-block",
-                width: "7px",
-                height: "7px",
-                borderRadius: "50%",
-                background: isStale ? "#f59e0b" : "#22c55e",
-                animation: isStale ? "pulse 1s infinite" : undefined,
-                flexShrink: 0,
-              }}
-            />
+            <Tooltip content={`Price updated ${secondsAgo}s ago`} side="top">
+              <span
+                tabIndex={0}
+                aria-label={`Price updated ${secondsAgo} seconds ago`}
+                style={{
+                  display: "inline-block",
+                  width: "7px",
+                  height: "7px",
+                  borderRadius: "50%",
+                  background: isStale ? "#f59e0b" : "#22c55e",
+                  animation: isStale ? "pulse 1s infinite" : undefined,
+                  flexShrink: 0,
+                  outline: "none",
+                }}
+                className="focus-visible:ring-2 focus-visible:ring-cyan-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#11121b]"
+              />
+            </Tooltip>
           )}
         </span>
       </div>

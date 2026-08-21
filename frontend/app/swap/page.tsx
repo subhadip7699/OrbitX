@@ -7,6 +7,7 @@ import PriceInfo from "@/components/swap/PriceInfo";
 import SlippageSettings from "@/components/swap/SlippageSettings";
 import { useWallet } from "@/hooks/useWallet";
 import Navbar from "@/components/Navbar";
+import Tooltip from "@/components/ui/tooltip";
 import { usePool } from "@/hooks/usePool";
 import { useSwapQuote } from "@/hooks/useSwapQuote";
 import { usePrices } from "@/hooks/usePrices";
@@ -182,12 +183,16 @@ export default function SwapPage() {
               slippage={slippage}
               onChange={setSlippage}
               trigger={
-                <button
-                  className="w-12 h-12 rounded-full bg-white/[0.04] border border-white/10 hover:border-cyan-500/40 hover:bg-white/[0.08] transition-all flex items-center justify-center cursor-pointer shadow-lg"
-                  title="Slippage settings"
-                >
-                  <SlidersHorizontal size={18} className="text-white transform rotate-90" />
-                </button>
+                <Tooltip content="Slippage settings" side="top">
+                  <button
+                    type="button"
+                    aria-label="Slippage settings"
+                    aria-haspopup="dialog"
+                    className="w-12 h-12 rounded-full bg-white/[0.04] border border-white/10 hover:border-cyan-500/40 hover:bg-white/[0.08] transition-all flex items-center justify-center cursor-pointer shadow-lg"
+                  >
+                    <SlidersHorizontal size={18} className="text-white transform rotate-90" />
+                  </button>
+                </Tooltip>
               }
             />
           </div>
@@ -210,16 +215,19 @@ export default function SwapPage() {
 
               {/* Flip button */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-                <button
-                  onClick={() => {
-                    setZeroForOne((z) => !z);
-                    setAmountIn("");
-                  }}
-                  className="w-12 h-12 rounded-full bg-[#121420] border border-white/15 hover:border-cyan-400 hover:scale-110 active:scale-95 transition-all text-white flex items-center justify-center shadow-xl cursor-pointer"
-                  title="Flip tokens"
-                >
-                  <Repeat size={18} className="text-cyan-400" />
-                </button>
+                <Tooltip content="Flip tokens" side="top">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setZeroForOne((z) => !z);
+                      setAmountIn("");
+                    }}
+                    aria-label="Flip tokens"
+                    className="w-12 h-12 rounded-full bg-[#121420] border border-white/15 hover:border-cyan-400 hover:scale-110 active:scale-95 transition-all text-white flex items-center justify-center shadow-xl cursor-pointer"
+                  >
+                    <Repeat size={18} className="text-cyan-400" />
+                  </button>
+                </Tooltip>
               </div>
 
               {/* Buy */}

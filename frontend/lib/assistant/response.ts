@@ -37,7 +37,7 @@ export async function getAssistantResponse(
   const normalized = message.trim();
   if (!normalized) {
     return {
-      title: "Ask Lumina",
+      title: "Ask OrbitX",
       body: "Ask me about Swap, Liquidity, Portfolio, wallet connection, or DeFi terms shown in OrbitX.",
     };
   }

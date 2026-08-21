@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef, useState, useMemo, useCallback } from "react";
+import { RotateCcw, ZoomIn, ZoomOut } from "lucide-react";
+import Tooltip from "@/components/ui/tooltip";
 
 interface Props {
   // All prices in USDC per XLM (the unit the user sees on screen).
@@ -145,9 +147,9 @@ export default function LiquidityChart({
           zIndex: 2,
         }}
       >
-        <ZoomBtn label="⟲" onClick={() => setZoom(1)} title="Reset zoom" />
-        <ZoomBtn label="+" onClick={() => setZoom((z) => Math.max(0.25, z * 0.8))} title="Zoom in" />
-        <ZoomBtn label="−" onClick={() => setZoom((z) => Math.min(4, z * 1.25))} title="Zoom out" />
+        <ZoomBtn icon={<RotateCcw className="h-3.5 w-3.5" />} onClick={() => setZoom(1)} title="Reset zoom" />
+        <ZoomBtn icon={<ZoomIn className="h-3.5 w-3.5" />} onClick={() => setZoom((z) => Math.max(0.25, z * 0.8))} title="Zoom in" />
+        <ZoomBtn icon={<ZoomOut className="h-3.5 w-3.5" />} onClick={() => setZoom((z) => Math.min(4, z * 1.25))} title="Zoom out" />
       </div>
 
       <svg
@@ -298,27 +300,30 @@ function Handle({
   );
 }
 
-function ZoomBtn({ label, onClick, title }: { label: string; onClick: () => void; title: string }) {
+function ZoomBtn({ icon, onClick, title }: { icon: React.ReactNode; onClick: () => void; title: string }) {
   return (
-    <button
-      onClick={onClick}
-      title={title}
-      style={{
-        width: 28,
-        height: 28,
-        borderRadius: 8,
-        border: "1px solid var(--border)",
-        background: "rgba(255, 255, 255, 0.05)",
-        color: "var(--text-primary)",
-        cursor: "pointer",
-        fontSize: 14,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      {label}
-    </button>
+    <Tooltip content={title} side="bottom">
+      <button
+        type="button"
+        onClick={onClick}
+        aria-label={title}
+        style={{
+          width: 28,
+          height: 28,
+          borderRadius: 8,
+          border: "1px solid var(--border)",
+          background: "rgba(255, 255, 255, 0.05)",
+          color: "var(--text-primary)",
+          cursor: "pointer",
+          fontSize: 14,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {icon}
+      </button>
+    </Tooltip>
   );
 }
 

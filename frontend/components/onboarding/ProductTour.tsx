@@ -72,7 +72,18 @@ export default function ProductTour({ open, onFinish, onClose }: ProductTourProp
         setRect(null);
         return;
       }
-      const target = document.querySelector(step.target);
+      const targets = Array.from(document.querySelectorAll(step.target));
+      const target =
+        targets.find((element) => {
+          const candidateRect = element.getBoundingClientRect();
+          const styles = window.getComputedStyle(element);
+          return (
+            candidateRect.width > 0 &&
+            candidateRect.height > 0 &&
+            styles.display !== "none" &&
+            styles.visibility !== "hidden"
+          );
+        }) ?? targets[0];
       setRect(target?.getBoundingClientRect() ?? null);
     }
 

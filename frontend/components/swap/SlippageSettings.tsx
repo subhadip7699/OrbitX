@@ -1,6 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import { Settings2 } from "lucide-react";
+import Tooltip from "@/components/ui/tooltip";
+
 const SLIPPAGE_PRESETS = [0.1, 0.5, 1.0] as const;
 
 interface Props {
@@ -12,34 +15,64 @@ interface Props {
 export default function SlippageSettings({ slippage, onChange, trigger }: Props) {
   const [open, setOpen] = useState(false);
   const [custom, setCustom] = useState("");
+  const panelId = useId();
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+
+    function handlePointerDown(event: PointerEvent) {
+      if (!wrapperRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [open]);
 
   return (
-    <div style={{ position: "relative" }}>
-      <div onClick={() => setOpen((o) => !o)}>
+    <div ref={wrapperRef} style={{ position: "relative" }}>
+      <div onClick={() => setOpen((value) => !value)}>
         {trigger ?? (
-          <button
-            style={{
-              background: "rgba(255, 255, 255, 0.05)",
-              border: "1px solid rgba(255, 255, 255, 0.12)",
-              borderRadius: "8px",
-              color: "var(--text-secondary)",
-              padding: "6px 12px",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              fontSize: "13px",
-            }}
-            title="Slippage settings"
-          >
-            <span>⚙</span>
-            <span style={{ color: "var(--text-primary)" }}>{slippage}%</span>
-          </button>
+          <Tooltip content="Slippage settings" side="top">
+            <button
+              type="button"
+              aria-label="Slippage settings"
+              aria-haspopup="dialog"
+              aria-expanded={open}
+              aria-controls={open ? panelId : undefined}
+              style={{
+                background: "rgba(255, 255, 255, 0.05)",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
+                borderRadius: "8px",
+                color: "var(--text-secondary)",
+                padding: "6px 12px",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+                fontSize: "13px",
+              }}
+            >
+              <Settings2 size={14} aria-hidden="true" />
+              <span style={{ color: "var(--text-primary)" }}>{slippage}%</span>
+            </button>
+          </Tooltip>
         )}
       </div>
 
       {open && (
         <div
+          id={panelId}
           className="slippage-panel"
           style={{
             background: "var(--bg-card)",
@@ -65,11 +98,12 @@ export default function SlippageSettings({ slippage, onChange, trigger }: Props)
             Slippage Tolerance
           </p>
           <div style={{ display: "flex", gap: "6px", marginBottom: "10px" }}>
-            {SLIPPAGE_PRESETS.map((p) => (
+            {SLIPPAGE_PRESETS.map((preset) => (
               <button
-                key={p}
+                key={preset}
+                type="button"
                 onClick={() => {
-                  onChange(p);
+                  onChange(preset);
                   setCustom("");
                 }}
                 style={{
@@ -78,20 +112,23 @@ export default function SlippageSettings({ slippage, onChange, trigger }: Props)
                   borderRadius: "8px",
                   border: "1px solid",
                   borderColor:
-                    slippage === p
+                    slippage === preset
                       ? "rgba(255, 255, 255, 0.6)"
                       : "rgba(255, 255, 255, 0.15)",
                   background:
-                    slippage === p
+                    slippage === preset
                       ? "rgba(255, 255, 255, 0.2)"
                       : "transparent",
-                  color: slippage === p ? "var(--text-primary)" : "var(--text-secondary)",
+                  color:
+                    slippage === preset
+                      ? "var(--text-primary)"
+                      : "var(--text-secondary)",
                   cursor: "pointer",
                   fontSize: "13px",
                   fontWeight: 600,
                 }}
               >
-                {p}%
+                {preset}%
               </button>
             ))}
           </div>
@@ -110,10 +147,10 @@ export default function SlippageSettings({ slippage, onChange, trigger }: Props)
               type="number"
               placeholder="Custom"
               value={custom}
-              onChange={(e) => {
-                setCustom(e.target.value);
-                const v = parseFloat(e.target.value);
-                if (!isNaN(v) && v > 0 && v <= 50) onChange(v);
+              onChange={(event) => {
+                setCustom(event.target.value);
+                const next = parseFloat(event.target.value);
+                if (!isNaN(next) && next > 0 && next <= 50) onChange(next);
               }}
               style={{
                 flex: 1,
@@ -128,7 +165,7 @@ export default function SlippageSettings({ slippage, onChange, trigger }: Props)
           </div>
           {slippage > 1 && (
             <p style={{ color: "#eab308", fontSize: "11px", marginTop: "8px" }}>
-              ⚠ High slippage — you may receive a bad rate
+              High slippage: you may receive a bad rate
             </p>
           )}
         </div>

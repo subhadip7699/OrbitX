@@ -45,7 +45,7 @@ type ChatMessage = {
   actions?: AssistantAction[];
 };
 
-const HINT_KEY = "Orbitx_assistant_hint_seen";
+const HINT_KEY = "OrbitX_assistant_hint_seen";
 const FEEDBACK_CATEGORIES = [
   "General feedback",
   "Bug",
@@ -65,6 +65,7 @@ export default function OrbitX() {
   const [mode, setMode] = useState<AssistantMode>("home");
   const [hintVisible, setHintVisible] = useState(false);
   const [successQueued, setSuccessQueued] = useState(false);
+  const [pendingQuestion, setPendingQuestion] = useState<string | null>(null);
 
   const feedbackContext = useMemo(
     () => ({
@@ -83,11 +84,11 @@ export default function OrbitX() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.localStorage.getItem(HINT_KEY) === "true") return;
+    if (getStoredFlag(HINT_KEY)) return;
     const showId = window.setTimeout(() => setHintVisible(true), 1600);
     const hideId = window.setTimeout(() => {
       setHintVisible(false);
-      window.localStorage.setItem(HINT_KEY, "true");
+      setStoredFlag(HINT_KEY);
     }, 7600);
     return () => {
       window.clearTimeout(showId);
@@ -102,8 +103,12 @@ export default function OrbitX() {
       setOpen(true);
     }
 
+    window.addEventListener("OrbitX:open-assistant", handleOpenAssistant);
     window.addEventListener("Orbitx:open-assistant", handleOpenAssistant);
-    return () => window.removeEventListener("Orbitx:open-assistant", handleOpenAssistant);
+    return () => {
+      window.removeEventListener("OrbitX:open-assistant", handleOpenAssistant);
+      window.removeEventListener("Orbitx:open-assistant", handleOpenAssistant);
+    };
   }, []);
 
   useEffect(() => {
@@ -120,7 +125,7 @@ export default function OrbitX() {
     setOpen(true);
     setHintVisible(false);
     if (typeof window !== "undefined") {
-      window.localStorage.setItem(HINT_KEY, "true");
+      setStoredFlag(HINT_KEY);
     }
   }
 
@@ -131,7 +136,7 @@ export default function OrbitX() {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4 z-[80] sm:bottom-6 sm:right-6">
+      <div className="fixed bottom-4 right-4 z-[60] sm:bottom-6 sm:right-6">
         <AnimatePresence>
           {hintVisible && !open && (
             <motion.div
@@ -141,29 +146,29 @@ export default function OrbitX() {
               className="mb-3 max-w-[220px] rounded-2xl border border-white/10 bg-[#11121b]/95 p-3 text-sm text-white/75 shadow-2xl backdrop-blur-xl"
             >
               <div className="font-bold text-white">Need help?</div>
-              <div className="mt-0.5 text-xs text-white/55">Ask Orbitx anytime.</div>
+              <div className="mt-0.5 text-xs text-white/55">Ask OrbitX anytime.</div>
             </motion.div>
           )}
         </AnimatePresence>
         <button
           type="button"
-          aria-label="Ask Orbitx"
+          aria-label="Ask OrbitX"
           onClick={() => openAssistant()}
           className="group inline-flex h-12 items-center gap-2 rounded-full border border-white/12 bg-[#10121c]/92 px-4 text-sm font-bold text-white shadow-[0_14px_44px_rgba(0,0,0,0.45)] backdrop-blur-xl transition hover:border-cyan-300/35 hover:bg-[#151827] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70 sm:h-13"
         >
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition group-hover:scale-105">
             <Sparkles className="h-4 w-4" />
           </span>
-          <span className="hidden sm:inline">Ask Orbitx</span>
+          <span className="hidden sm:inline">Ask OrbitX</span>
         </button>
       </div>
 
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 z-[140] flex items-end justify-center sm:items-end sm:justify-end sm:p-6">
+          <div className="fixed inset-0 z-[110] flex items-end justify-center sm:items-end sm:justify-end sm:p-6">
             <motion.button
               type="button"
-              aria-label="Close Orbitx Assistant"
+              aria-label="Close OrbitX Assistant"
               className="absolute inset-0 bg-black/45 backdrop-blur-[2px] sm:bg-transparent sm:backdrop-blur-0"
               onClick={() => setOpen(false)}
               initial={{ opacity: 0 }}
@@ -173,7 +178,7 @@ export default function OrbitX() {
             <motion.section
               role="dialog"
               aria-modal="true"
-              aria-labelledby="Orbitx-assistant-title"
+              aria-labelledby="OrbitX-assistant-title"
               initial={{ opacity: 0, y: 28, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 24, scale: 0.98 }}
@@ -193,9 +198,9 @@ export default function OrbitX() {
                     </button>
                   )}
                   <div>
-                    <h2 id="Orbitx-assistant-title" className="flex items-center gap-2 text-base font-extrabold">
+                    <h2 id="OrbitX-assistant-title" className="flex items-center gap-2 text-base font-extrabold">
                       <Sparkles className="h-4 w-4 text-cyan-200" />
-                      Orbitx Assistant
+                      OrbitX Assistant
                     </h2>
                     <p className="mt-0.5 text-xs leading-relaxed text-white/48">
                       Get help, learn OrbitX, or share feedback.
@@ -217,16 +222,18 @@ export default function OrbitX() {
                   pathname={pathname}
                   onMode={setMode}
                   onQuestion={(question) => {
+                    setPendingQuestion(question);
                     setMode("chat");
-                    window.setTimeout(() => {
-                      window.dispatchEvent(
-                        new CustomEvent("Orbitx:ask", { detail: { question } })
-                      );
-                    }, 0);
                   }}
                 />
               )}
-              {mode === "chat" && <AssistantChat pathname={pathname} />}
+              {mode === "chat" && (
+                <AssistantChat
+                  pathname={pathname}
+                  pendingQuestion={pendingQuestion}
+                  onPendingQuestionHandled={() => setPendingQuestion(null)}
+                />
+              )}
               {mode === "feedback" && (
                 <FeedbackForm
                   type="general"
@@ -344,7 +351,15 @@ function AssistantHome({
   );
 }
 
-function AssistantChat({ pathname }: { pathname: string }) {
+function AssistantChat({
+  pathname,
+  pendingQuestion,
+  onPendingQuestionHandled,
+}: {
+  pathname: string;
+  pendingQuestion: string | null;
+  onPendingQuestionHandled: () => void;
+}) {
   const [messages, setMessages] = useState<ChatMessage[]>([
     answerToMessage(getPageExplanation(pathname), "assistant"),
   ]);
@@ -358,7 +373,7 @@ function AssistantChat({ pathname }: { pathname: string }) {
       if (!trimmed || loading) return;
       setMessages((current) => [
         ...current,
-        { id: crypto.randomUUID(), role: "user", content: trimmed },
+        { id: createMessageId(), role: "user", content: trimmed },
       ]);
       setInput("");
       setLoading(true);
@@ -369,7 +384,7 @@ function AssistantChat({ pathname }: { pathname: string }) {
         setMessages((current) => [
           ...current,
           {
-            id: crypto.randomUUID(),
+            id: createMessageId(),
             role: "assistant",
             content: "I couldn't answer that right now, but OrbitX is still working normally. Try asking again in a moment.",
           },
@@ -387,8 +402,21 @@ function AssistantChat({ pathname }: { pathname: string }) {
       if (question) void ask(question);
     }
     window.addEventListener("Orbitx:ask", handleAsk);
-    return () => window.removeEventListener("Orbitx:ask", handleAsk);
+    window.addEventListener("OrbitX:ask", handleAsk);
+    return () => {
+      window.removeEventListener("Orbitx:ask", handleAsk);
+      window.removeEventListener("OrbitX:ask", handleAsk);
+    };
   }, [ask]);
+
+  useEffect(() => {
+    if (!pendingQuestion) return;
+    const id = window.setTimeout(() => {
+      void ask(pendingQuestion);
+      onPendingQuestionHandled();
+    }, 0);
+    return () => window.clearTimeout(id);
+  }, [ask, onPendingQuestionHandled, pendingQuestion]);
 
   useEffect(() => {
     scrollerRef.current?.scrollTo({ top: scrollerRef.current.scrollHeight, behavior: "smooth" });
@@ -407,7 +435,7 @@ function AssistantChat({ pathname }: { pathname: string }) {
         ))}
         {loading && (
           <div className="w-fit rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-white/55">
-            Orbitx is typing...
+            OrbitX is typing...
           </div>
         )}
       </div>
@@ -452,7 +480,7 @@ function AssistantMessage({ message }: { message: ChatMessage }) {
           }`}
       >
         <div className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/35">
-          {isUser ? "You" : "Orbitx"}
+          {isUser ? "You" : "OrbitX"}
         </div>
         <div className="mt-1">{message.content}</div>
         {message.steps && (
@@ -640,10 +668,33 @@ function SuccessState({
 
 function answerToMessage(answer: AssistantAnswer, role: "assistant"): ChatMessage {
   return {
-    id: crypto.randomUUID(),
+    id: createMessageId(),
     role,
     content: `${answer.title}: ${answer.body}`,
     steps: answer.steps,
     actions: answer.actions,
   };
+}
+
+function createMessageId() {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
+    return crypto.randomUUID();
+  }
+  return `message-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+function getStoredFlag(key: string) {
+  try {
+    return window.localStorage.getItem(key) === "true";
+  } catch {
+    return false;
+  }
+}
+
+function setStoredFlag(key: string) {
+  try {
+    window.localStorage.setItem(key, "true");
+  } catch {
+    // Storage can be unavailable in private or embedded browser contexts.
+  }
 }

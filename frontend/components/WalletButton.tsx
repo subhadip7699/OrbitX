@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useGlobalWallet } from "@/context/WalletContext";
 import { ChevronDown, Copy, Check, ExternalLink, LogOut, Disc, Loader2 } from "lucide-react";
+import Tooltip from "@/components/ui/tooltip";
 
 export default function WalletButton() {
   const {
@@ -119,17 +120,19 @@ export default function WalletButton() {
                 <span className="font-mono text-sm text-white/80 break-all select-all select-none">
                   {address}
                 </span>
-                <button
-                  onClick={handleCopy}
-                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 text-white/60 hover:text-white transition-colors duration-150 cursor-pointer"
-                  title="Copy Address"
-                >
-                  {copied ? (
-                    <Check className="w-4 h-4 text-emerald-400" />
-                  ) : (
-                    <Copy className="w-4 h-4" />
-                  )}
-                </button>
+                <Tooltip content={copied ? "Copied" : "Copy address"} side="top">
+                  <button
+                    onClick={handleCopy}
+                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 text-white/60 hover:text-white transition-colors duration-150 cursor-pointer"
+                    aria-label={copied ? "Address copied" : "Copy address"}
+                  >
+                    {copied ? (
+                      <Check className="w-4 h-4 text-emerald-400" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
+                  </button>
+                </Tooltip>
               </div>
 
               {/* Balance display */}

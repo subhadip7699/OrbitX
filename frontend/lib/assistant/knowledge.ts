@@ -14,17 +14,17 @@ export type AssistantAnswer = {
 export const luminaKnowledge: Record<string, AssistantAnswer> = {
   wallet: {
     title: "Connect your wallet",
-    body: "Use Connect Wallet to link your Stellar wallet. Orbitx never asks for your seed phrase, private key, or wallet password.",
+    body: "Use Connect Wallet to link your Stellar wallet. OrbitX never asks for your seed phrase, private key, or wallet password.",
     steps: [
       "Click Connect Wallet in the navigation.",
       "Choose Freighter or another supported Stellar wallet.",
       "Approve the connection in your wallet.",
-      "Review the shortened address shown in Orbitx.",
+      "Review the shortened address shown in OrbitX.",
     ],
   },
   swap: {
     title: "How to swap XLM and USDC",
-    body: "Swap lets you exchange supported Stellar assets using Orbitx liquidity pools. Always review the quote before confirming.",
+    body: "Swap lets you exchange supported Stellar assets using OrbitX liquidity pools. Always review the quote before confirming.",
     steps: [
       "Connect your Stellar wallet.",
       "Open Swap.",
@@ -67,7 +67,7 @@ export const luminaKnowledge: Record<string, AssistantAnswer> = {
   },
   feeTier: {
     title: "Fee tier",
-    body: "The fee tier is the percentage of each trade paid to liquidity providers in that pool. Orbitx shows the pool fee before you provide liquidity.",
+    body: "The fee tier is the percentage of each trade paid to liquidity providers in that pool. OrbitX shows the pool fee before you provide liquidity.",
   },
   priceRange: {
     title: "Price range",
@@ -80,11 +80,11 @@ export const luminaKnowledge: Record<string, AssistantAnswer> = {
   },
   transactions: {
     title: "Transaction status",
-    body: "Orbitx builds the transaction, asks your wallet for approval, submits it to Stellar, and waits for confirmation. If it fails, review the message and try again after fixing the issue.",
+    body: "OrbitX builds the transaction, asks your wallet for approval, submits it to Stellar, and waits for confirmation. If it fails, review the message and try again after fixing the issue.",
   },
   usdc: {
     title: "Getting USDC",
-    body: "USDC is a Stellar asset. On Testnet, you may need a trustline and test assets. Orbitx will warn you if your wallet cannot receive or spend the asset yet.",
+    body: "USDC is a Stellar asset. On Testnet, you may need a trustline and test assets. OrbitX will warn you if your wallet cannot receive or spend the asset yet.",
   },
   outOfRange: {
     title: "Out of range",
@@ -92,11 +92,11 @@ export const luminaKnowledge: Record<string, AssistantAnswer> = {
   },
   financialAdvice: {
     title: "About trading decisions",
-    body: "I can explain how Orbitx works, but the decision to trade or provide liquidity is yours. I cannot tell you what to buy or whether a price is good.",
+    body: "I can explain how OrbitX works, but the decision to trade or provide liquidity is yours. I cannot tell you what to buy or whether a price is good.",
   },
   security: {
     title: "Wallet safety",
-    body: "For your security, never share your wallet seed phrase, private key, password, or recovery phrase. Orbitx will never ask you for them.",
+    body: "For your security, never share your wallet seed phrase, private key, password, or recovery phrase. OrbitX will never ask you for them.",
   },
 };
 
@@ -104,7 +104,7 @@ export function getPageExplanation(pathname: string): AssistantAnswer {
   if (pathname.startsWith("/swap")) {
     return {
       title: "This Swap page",
-      body: "This page lets you exchange supported Stellar assets using Orbitx liquidity pools. Select what you pay with, enter an amount, review the quote and slippage, then confirm in your Stellar wallet.",
+      body: "This page lets you exchange supported Stellar assets using OrbitX liquidity pools. Select what you pay with, enter an amount, review the quote and slippage, then confirm in your Stellar wallet.",
       actions: [{ label: "Ask about slippage", mode: "chat" }],
     };
   }
@@ -127,8 +127,8 @@ export function getPageExplanation(pathname: string): AssistantAnswer {
     };
   }
   return {
-    title: "This Orbitx page",
-    body: "Orbitx helps you swap XLM and USDC, provide concentrated liquidity, and track positions on Stellar.",
+    title: "This OrbitX page",
+    body: "OrbitX helps you swap XLM and USDC, provide concentrated liquidity, and track positions on Stellar.",
   };
 }
 
