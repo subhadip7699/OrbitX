@@ -30,39 +30,151 @@ A CLMM DEX allows Liquidity Providers (LPs) to deposit liquidity into **discrete
 | Resource | Link / Details |
 | :--- | :--- |
 | **Live Demo** | [https://orbit-x-two.vercel.app/](https://orbit-x-two.vercel.app//) |
-| 📜 **Contract Address (Testnet)** | `CBR7MAQPM35KPK3ULM4FBLEQMQFJZC6N7YWXMPWPYWVPOL2OVNKKBPQV` |
-| 🔍 **Proof of Wallet Interactions** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBR7MAQPM35KPK3ULM4FBLEQMQFJZC6N7YWXMPWPYWVPOL2OVNKKBPQV) |
-| 📝 **User Feedback** | [View Spreadsheet](https://docs.google.com/spreadsheets/d/131JXBW54fSMdmeeXcjTRUYZhYKoJSFi1WKzNA8zrSOo/edit?usp=sharing) |
-| 📝 **Smart Contract Activity** | [/Smart Contract Activity](#smart-contract-activity) |
-
-
+| 📜 **Contract Address (Testnet)** | `CCYBX2FOT5RWL6T2CQROAA3ZECYNNE3PSJ7WQXULU6AJOCCK6YHSTH32` |
+| 🔍 **Proof of 62+ Wallet Interactions** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCYBX2FOT5RWL6T2CQROAA3ZECYNNE3PSJ7WQXULU6AJOCCK6YHSTH32) |
+| 📝 **User Feedback** | [View Spreadsheet](https://docs.google.com/spreadsheets/d/1Wiyhyp5v6rL02uJWgC61gmYGV2KzKw5G1KIe3Ec0NpM/edit?usp=sharing) |
+| 📊 **Monitoring & Analytics Dashboard** | [/monitoring & Analytics](#monitoring-dashboard) |
+| 📝 **Smart Contract Activity (62+ Wallet)** | [/Smart Contract Activity](#smart-contract-activity) |
 
 ---
 
 
-## ✅ Level 4 Submission Checklist
+## ✅ Level 5 Submission Checklist
 
-All required Level 4 deliverables have been completed and verified below.
+All required Level 5 deliverables have been completed and verified below.
 
 | Requirement | Status | Evidence / Verification |
 | :--- | :---: | :--- |
-| **20+ Meaningful Git Commits** | ✅ Complete | **30+ meaningful commits** — verify using `git log --oneline` |
-| **Live Deployed Application** | ✅ Complete | 🌐 [Launch OrbitX](https://orbit-x-two.vercel.app/) |
-| **Proof of 10+ Test Users** | ✅ Complete | 👥 [10+ Verified User Responses](https://docs.google.com/spreadsheets/d/1Gz3xI4V1ihZ08lTffUSx2A3anyo6QhdbSUe-XwXYA98/edit?resourcekey=&gid=46542854#gid=46542854) |
+| **20+ Meaningful Git Commits** | ✅ Complete | **32+ meaningful commits** — verify using `git log --oneline` |
+| **Live Deployed Application** | ✅ Complete | 🌐 [https://orbit-x-two.vercel.app/](https://orbit-x-two.vercel.app//) |
+| **Project Presentation / Pitch Deck** | ✅ Complete | 📊 [View Presentation](https://docs.google.com/presentation/d/1135sJMAdPgD99A1Jt0SJ0oHWpn-uwUY6/edit?usp=sharing&ouid=111617888193331830582&rtpof=true&sd=true) |
+| **Demo Video** | ✅ Complete | 🎥 [Watch Demo Video](https://drive.google.com/file/d/1t2fU7E7AqFaGoWMrFVGRmSH8xdBBTyz8/view?usp=sharing) |
+| **Proof of 50+ Test Users** | ✅ Complete | 👥 [50+ Verified User Responses](https://docs.google.com/spreadsheets/d/1Wiyhyp5v6rL02uJWgC61gmYGV2KzKw5G1KIe3Ec0NpM/edit?usp=sharing) |
+| **Analytics & Transaction Activity** | ✅ Complete | 📈 See [Smart Contract Activity](#smart-contract-activity) and [Analytics Dashboard](#monitoring-dashboard) |
 | **User Feedback & Product Iterations** | ✅ Complete | 📈 See [Improvements Based on User Feedback](#-user-feedback--improvements) |
-| **User Feedback Collection Form** | ✅ Complete | 📝 [Open Feedback Form](https://forms.gle/4GLatSR8L4xDHLxL8) |
+| **User Feedback Collection Form** | ✅ Complete | 📝 [Open Feedback Form](https://forms.gle/gEEYjqmHRHJ9u9Rm8) |
 | **CI/CD Pipeline** | ✅ Complete | ⚙️ GitHub Actions configured — see [CI/CD Pipeline](#-cicd-github-actions--githubworkflows) |
 
-> **Submission Status:** ✅ **All Level 4 requirements completed**
+> **Submission Status:** ✅ **All Level 5 requirements completed**
 >
 > OrbitX includes a live production deployment, 30+ meaningful commits, verified testing from 50+ users, documented feedback-driven iterations, analytics and smart contract activity proof, automated CI/CD, a complete pitch deck, and a working demo video.
 ---
+## 🚀 Deployed Contracts (Stellar Testnet)
+
+The `contracts/` directory was reorganized as a **Cargo workspace** with all contracts as members. Compilations and optimizations were performed, followed by fresh deployments using the `rishii` account on Stellar Testnet.
+
+**Network:** Stellar Testnet · **Passphrase:** `Test SDF Network ; September 2015`
+
+| Contract | Deployed Address (testnet) | Explorer |
+|---|---|---|
+| **Factory** | `CDFY5UX77PQDP2QGNY4YGZVKK6FE6J2LSSVZFXTQSHRO2JIES7LSZGPE` | [view](https://stellar.expert/explorer/testnet/contract/CDFY5UX77PQDP2QGNY4YGZVKK6FE6J2LSSVZFXTQSHRO2JIES7LSZGPE) |
+| **Pool** (XLM/USDC 0.3%) | `CCYBX2FOT5RWL6T2CQROAA3ZECYNNE3PSJ7WQXULU6AJOCCK6YHSTH32` | [view](https://stellar.expert/explorer/testnet/contract/CCYBX2FOT5RWL6T2CQROAA3ZECYNNE3PSJ7WQXULU6AJOCCK6YHSTH32) |
+| **Router** | `CDLCGPUP7NW4B4SSFG5H4I75PKDGPUZDHOX5C6YICJY7RDJ7VP7BAT62` | [view](https://stellar.expert/explorer/testnet/contract/CDLCGPUP7NW4B4SSFG5H4I75PKDGPUZDHOX5C6YICJY7RDJ7VP7BAT62) |
+| **Position Manager** | `CC6IBQ7VNVK7CQYIZX47NJPDH5DL5ISQSA26BLBZXVMVEQ3QGUAZDREI` | [view](https://stellar.expert/explorer/testnet/contract/CC6IBQ7VNVK7CQYIZX47NJPDH5DL5ISQSA26BLBZXVMVEQ3QGUAZDREI) |
+| XLM (Stellar Asset Contract) | `CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC` | [view](https://stellar.expert/explorer/testnet/contract/CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC) |
+| USDC (Stellar Asset Contract) | `CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA` | [view](https://stellar.expert/explorer/testnet/contract/CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA) |
+> ℹ️ **These are the current, live testnet deployments** and supersede any previously published contract addresses for this project.
+
+### Token Addresses (Stellar Testnet)
+
+| Token | Type | Soroban address (SAC) | Classic issuer |
+|---|---|---|---|
+| XLM | Native Stellar asset (SAC) | `CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC` | native |
+| USDC | SEP-41 SAC over classic USDC | `CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA` | `GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5` |
+
+> USDC is a SAC wrapping the classic asset issued by the address above — the G-address is used only for building `change_trust` trustline transactions, never for Soroban token calls.
+
 ## 👥 Level 4 User Onboarding
 
-🔗 **Google Form:** [Google Form](https://forms.gle/oY5AyKQNzFx26oe28)
-📊 **Response Sheet:** [Response Sheet](https://docs.google.com/spreadsheets/d/1Gz3xI4V1ihZ08lTffUSx2A3anyo6QhdbSUe-XwXYA98/edit?usp=sharing)
+🔗 **Google Form:** [Google Form](https://forms.gle/WLhQVMLvUevVbFB2A)
+📊 **Response Sheet:** [Response Sheet](https://docs.google.com/spreadsheets/d/1Wiyhyp5v6rL02uJWgC61gmYGV2KzKw5G1KIe3Ec0NpM/edit?usp=sharing)
 ---
 > These are selected user feedback points that highlighted the most necessary improvements for OrbitX. We used them to prioritize and implement meaningful updates across the platform based on real user needs.
+
+## 💬 Feedback & Improvements
+
+| # | Name | Email | Wallet Address | Feedback | Improvement Made | Git Commit |
+|---|---|---|---|---|---|---|
+| 1 | **Manoj Kumar** | `manojkumar.tech@gmail.com` | `GC5HB7YY5QARF7QJ4TNAUILBD6A3XIL2OUOHBWKSCIATL4CYM7XS46CJ` | Mobile responsiveness was good but needed further tweaking on smaller screens. | Refined **responsive layouts, spacing, mobile navigation, component sizing, and visual behavior** for a smoother OrbitX experience across different screen sizes. | [`c8000f2`](https://github.com/subhadip7699/OrbitX/commit/c8000f26cc0adf894463769b1d1204cced42f8ae) |
+| 2 | **Sumit Gupta** | `sumit.gupta991@gmail.com` | `GAYBTQPYRKESTP5ZZ4NP5EIWPDPYDCUF5PSGEZGCBE4T2B2ECN2CEERY` | Wanted to suggest a feature without leaving the workflow. | Added an **in-app feedback and assistance experience** so users can submit feature suggestions and interact with OrbitX without leaving their current workflow. | [`c8000f2`](https://github.com/subhadip7699/OrbitX/commit/c8000f26cc0adf894463769b1d1204cced42f8ae) |
+| 3 | **Aarav Gill** | `aarav.gill660@gmail.com` | `GADW73YT7U343MIOBVQWFI5EKMOTZQ4LKHIPXOP64VROIX36ITRBF2LW` | Was unsure how to proceed as a beginner. | Added a **beginner-friendly onboarding experience, clearer explanations, and contextual guidance** across important OrbitX flows. | [`2235f9c`](https://github.com/subhadip7699/OrbitX/commit/2235f9c118ee430f7d6e0ac52565830e43724927) |
+| 4 | **Ishaan Singh** | `ishaan.singh519@gmail.com` | `GDFMFQD2E535OTI66I2DE4X5IP7IAFTI6LU6H2CDCL7GDUFXSMHUS27W` | Wanted fewer failed transactions caused by slippage. | Improved transaction reliability with **slippage protection, minimum-amount checks, and stronger validation** before submitting liquidity operations. | [`7c57b01`](https://github.com/subhadip7699/OrbitX/commit/7c57b0123962b159c2d1aa90676054c936308e9e) |
+| 5 | **Sana Agarwal** | `sana.agarwal723@gmail.com` | `GBIMUWR2QF66W2DFOU5KAIZPTMLDEOPXEDYQQQB3O4L3VLYAYSAAUWIS` | Wanted an easy way to share thoughts with the team directly from the application. | Added an **in-app feedback flow** so users can share general feedback, suggestions, and experience-related comments directly within OrbitX. | [`c8000f2`](https://github.com/subhadip7699/OrbitX/commit/c8000f26cc0adf894463769b1d1204cced42f8ae) |
+| 6 | **Ananya Gupta** | `ananya.g.95@hotmail.com` | `GCLOCQVPRSLC3HNNJNP7EZNI4HEUOQ46DITZOQLQZDA3WBJRYEIDGYG7` | More detailed tutorials for beginners would be helpful. | Added **beginner guidance, contextual tooltips, educational explanations, and easier access to platform help** for first-time users. | [`65e0212`](https://github.com/subhadip7699/OrbitX/commit/65e0212ec3f3f7a442ea13d1da9b492e6dfced46) |
+| 7 | **Neha Kumar** | `neha.kumar575@gmail.com` | `GA5BXY7NBEW6J6HXER4P7FFC3VHU2D3R4QTM2LJ72KK5TTX57TTJHALG` | Slippage was causing transactions to fail frequently. | Improved liquidity execution with **slippage-protected minimum amounts, stronger range validation, and required-token checks** before signing. | [`7c57b01`](https://github.com/subhadip7699/OrbitX/commit/7c57b0123962b159c2d1aa90676054c936308e9e) |
+| 8 | **Rekha Dubey** | `rekha.dubey665@gmail.com` | `GALMHTHPIMSF6MW7N2LBHVTFW33CKXERJ2SOZUUTRQG2NEGE7XKMLKM3` | Wanted to rate the experience after completing an action. | Added a **1–5 star rating and feedback experience** so users can quickly rate OrbitX after important actions without leaving the platform. | [`c8000f2`](https://github.com/subhadip7699/OrbitX/commit/c8000f26cc0adf894463769b1d1204cced42f8ae) |
+| 9 | **Seema Mehta** | `seema.mehta846@gmail.com` | `GAV3YCC7P6NEKKJDJPEDYC2GUOOCJEQ4BOD2DEBOI45SVZLGNATRF4RE` | Made a mistake in the price and had to start over; highlighted the value of a guided flow for non-crypto-native users. | Added clearer **price-range guidance, contextual explanations, and position review information** so users can verify important values before continuing. | [`3c563c7`](https://github.com/subhadip7699/OrbitX/commit/3c563c795ae3d4d85ab6f79606edf22d9f61165b) |
+| 10 | **Vishal Hegde** | `vishal.hegde212@gmail.com` | `GCBNJP2WVBKSA5JDVQWLUEWFUC6NA6OV3OVJOTJIY56MFPF766AP4AOZ` | The displayed conversion rate was significantly different from the expected market/pool value. | Improved **pool pricing and liquidity calculations** to provide more accurate price, range, and conversion information to users. | [`c8641ba`](https://github.com/subhadip7699/OrbitX/commit/c8641ba041a6224cc9a36d80673319ef62168d8a) |
+| 11 | **Megha Venkatesh** | `megha.venkatesh871@gmail.com` | `GCLOCQVPRSLC3HNNJNP7EZNI4HEUOQ46DITZOQLQZDA3WBJRYEIDGYG7` | No clear channel for giving quick ratings on the experience. | Added a quick **rating and structured feedback experience** directly within OrbitX, making it easier to share feedback after using the platform. | [`c8000f2`](https://github.com/subhadip7699/OrbitX/commit/c8000f26cc0adf894463769b1d1204cced42f8ae) |
+| 12 | **Sanjay Patel** | `sanjay.patel737@gmail.com` | `GAZZMFXSNWU5DFU64K2NUSEBTWB76IJVRKIK3UGWMRHKIHKZHVUYN5PK` | Wanted to review everything on one page before signing. | Improved the **pre-transaction review experience** so users can check important transaction and liquidity information before committing an action. | [`2235f9c`](https://github.com/subhadip7699/OrbitX/commit/2235f9c118ee430f7d6e0ac52565830e43724927) |
+| 13 | **Riya Verma** | `riyaverma2001@gmail.com` | `GBSIPLJLRUICHCU7BEVBJ33EU3K6FR64G2JKTUD6CUW7DFIOBAVLA4QN` | Requested better direct USDC support. | Strengthened **USDC/XLM handling**, including clearer balance validation, required-token checks, and improved token interaction feedback. | [`c8641ba`](https://github.com/subhadip7699/OrbitX/commit/c8641ba041a6224cc9a36d80673319ef62168d8a) |
+| 14 | **Geeta Agarwal** | `geeta.agarwal229@gmail.com` | `GCTD57WK6DCZBQXFD22E7ZIRRQLOB5WYODJXHS5LMOR6LCVQNEM6OV6C` | Wanted to rate the experience and easily report small bugs without opening an external issue. | Added structured **ratings, bug reports, feature requests, and general feedback** directly inside OrbitX for a more convenient user feedback workflow. | [`c8000f2`](https://github.com/subhadip7699/OrbitX/commit/c8000f26cc0adf894463769b1d1204cced42f8ae) |
+| 15 | **Rohan Hegde** | `rohan.hegde174@gmail.com` | `GCVE5QXJ33NFGVMUCGUTTUVJQ7F6O4G6OPLCIU5O6OQXPYNORGDP3UIY` | Made a mistake in the price and had to restart the flow. | Added clearer **minimum/maximum price guidance, range explanations, position-state information, and pre-submit review** to help users catch mistakes earlier. | [`65e0212`](https://github.com/subhadip7699/OrbitX/commit/65e0212ec3f3f7a442ea13d1da9b492e6dfced46) |
+
+> The product went through a round of hands-on user feedback covering the marketing
+site and the Swap / Liquidity / Portfolio app shell. Each row below maps the
+feedback we received to the concrete change shipped for it and the commit that
+contains that change.
+> 
+</br>
+
+### 📌📈 User Feedback & Improvements Summary
+
+Based on selected Stellar Testnet feedback, **OrbitX** was iteratively improved across onboarding, transaction reliability, liquidity management, in-app feedback, pricing accuracy, token handling, and responsive usability.
+
+Key improvements include:
+
+- 🤖 **In-App Feedback & Assistance** — Added a built-in feedback experience for ratings, bug reports, feature requests, suggestions, and general feedback without leaving OrbitX.
+- 📘 **Beginner-Friendly Guidance** — Added clearer onboarding, contextual explanations, tooltips, and educational guidance for first-time and non-crypto-native users.
+- 🔍 **Pre-Transaction Review** — Improved review flows so users can verify important liquidity, price-range, and transaction information before confirming actions.
+- 🛡️ **Slippage & Transaction Protection** — Added stronger validation, slippage protection, minimum-amount checks, and safer liquidity execution flows.
+- 💱 **Pricing & Liquidity Accuracy** — Improved pool pricing, conversion information, and liquidity calculations for more reliable values across the application.
+- 💵 **XLM / USDC Handling** — Strengthened token balance checks, required-token validation, and overall XLM/USDC interaction feedback.
+- ⭐ **Ratings & Product Feedback** — Added quick 1–5 star rating flows so users can share their experience immediately after important actions.
+- 📱 **Responsive UI Improvements** — Refined layouts, spacing, navigation, component sizing, and mobile behavior across different screen sizes.
+
+> **15 selected user feedback points were directly mapped to implemented improvements and verifiable Git commits**, demonstrating continuous feedback-driven development throughout OrbitX.
+
+
+## 📱 Mobile Responsive
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/d2993f69-efa3-46e8-9dee-7424ffe43249" alt="Mobile Responsive Preview" width="300" />
+</div>
+
+## Landing Page 
+<img width="1919" height="908" alt="image" src="https://github.com/user-attachments/assets/ad285624-8ad5-4814-9567-408ab88be07d" />
+## Liquidity Page 
+<img width="1620" height="898" alt="image" src="https://github.com/user-attachments/assets/dbcd8256-4391-42d9-830f-809e387ccb89" />
+
+## Smart Contract Activity 
+<img width="1915" height="916" alt="image" src="https://github.com/user-attachments/assets/2993eb1c-5891-4da3-953b-5d0a1a2399fb" />
+
+
+## Monitoring Dashboard
+<div align="center">
+  <img
+    src="https://github.com/user-attachments/assets/def2319f-4edf-4e7d-a2f3-a892a44d5b13"
+    alt="Screenshot from 2026-07-24 18-41-31"
+    width="48%"
+  />
+  <img
+    src="https://github.com/user-attachments/assets/9aff7f1e-2efa-4acc-a2eb-42207dd0c733"
+    alt="Screenshot from 2026-07-24 18-41-45"
+    width="48%"
+  />
+</div>
+## 🧪 CI/CD (GitHub Actions — `.github/workflows/`)
+
+| Workflow | Trigger | Steps |
+|---|---|---|
+| **`ci.yml`** | Push / PR to `main` | **contracts job:** `cargo fmt --check` → `cargo test` → `cargo build --target wasm32-unknown-unknown --release` → upload wasm.<br>**frontend job:** `npm ci` → `npm run lint` → `npm run typecheck` → `npm run test:ci` → `npm run build`. Fails on any lint/type/test/build error. |
+| **`deploy.yml`** | Push to `main` + manual dispatch | **deploy-contract:** build wasm → `stellar contract deploy` (factory) on testnet.<br>**deploy-frontend:** `needs: deploy-contract` → `npm run build` with `NEXT_PUBLIC_*` → `vercel deploy --prod`. Deploy steps skip cleanly when secrets are absent. |
+
+
+## Smart Contract Activity 
+<img width="1919" height="906" alt="image" src="https://github.com/user-attachments/assets/e6d9c617-8bef-4212-ae1a-85f7ba733199" />
+
 
 | Page | What it does |
 |---|---|
@@ -82,54 +194,6 @@ All required Level 4 deliverables have been completed and verified below.
 | Wallet | Freighter (browser extension) |
 
 ---
-## 🚀 Deployed Contracts (Stellar Testnet)
-
-The `contracts/` directory was reorganized as a **Cargo workspace** with all contracts as members. Compilations and optimizations were performed, followed by fresh deployments using the `Shitii` account on Stellar Testnet.
-
-**Network:** Stellar Testnet · **Passphrase:** `Test SDF Network ; September 2015`
-
-| Contract | Deployed Address (Testnet) | Notes | Explorer |
-|---|---|---|---|
-| **Factory** | `CCDUWTVMG6J4V6SZJBWKO5E24IEYHZEHXJZNIVKQURFN6DATWISOL72T` | Pool registry & deployer | [view](https://stellar.expert/explorer/testnet/contract/CCDUWTVMG6J4V6SZJBWKO5E24IEYHZEHXJZNIVKQURFN6DATWISOL72T) |
-| **Pool (XLM/USDC, 0.3% Fee)** | `CBR7MAQPM35KPK3ULM4FBLEQMQFJZC6N7YWXMPWPYWVPOL2OVNKKBPQV` | Deployed and initialized at live market price of **~$0.183** | [view](https://stellar.expert/explorer/testnet/contract/CBR7MAQPM35KPK3ULM4FBLEQMQFJZC6N7YWXMPWPYWVPOL2OVNKKBPQV) |
-| **Router** | `CBJR47MFKAATLVITCHAYDXEML4FB4HVTZXK4DPZQPWYNN3AG4GJU3ERD` | Exact-in / exact-out swap entrypoints | [view](https://stellar.expert/explorer/testnet/contract/CBJR47MFKAATLVITCHAYDXEML4FB4HVTZXK4DPZQPWYNN3AG4GJU3ERD) |
-| **Position Manager** | `CDARU3KCM2CKQLQ74V4NYJ6V5X6Q4IXLKJGSDEIOLEQAUOAYUQ27QKBH` | LP position lifecycle | [view](https://stellar.expert/explorer/testnet/contract/CDARU3KCM2CKQLQ74V4NYJ6V5X6Q4IXLKJGSDEIOLEQAUOAYUQ27QKBH) |
-| **UserProfile Contract** | `CDCTJGULUEJSL3DBJQYD7DVQEA52J7QZDGY5EPDVIODBJQW532O3675U` | On-chain user profile registry (organized under `contracts/`) | [view](https://stellar.expert/explorer/testnet/contract/CDCTJGULUEJSL3DBJQYD7DVQEA52J7QZDGY5EPDVIODBJQW532O3675U) |
-
-> ℹ️ **These are the current, live testnet deployments** and supersede any previously published contract addresses for this project.
-
-### Token Addresses (Stellar Testnet)
-
-| Token | Type | Soroban Address (SAC) | Classic Issuer | Asset Code | Explorer |
-|---|---|---|---|---|---|
-| XLM | Native Stellar asset (SAC) | `CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC` | `native` | — | [view](https://stellar.expert/explorer/testnet/contract/CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC) |
-| USDC | SEP-41 SAC over classic USDC | `CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA` | `GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5` | `USDC` | [view](https://stellar.expert/explorer/testnet/contract/CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA) |
-
-> USDC is a SAC wrapping the classic asset issued by the address above — the G-address is used only for building `change_trust` trustline transactions, never for Soroban token calls.
-
-
-## 📱 Mobile Responsive
-
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/d2993f69-efa3-46e8-9dee-7424ffe43249" alt="Mobile Responsive Preview" width="300" />
-</div>
-
-## Landing Page 
-<img width="1919" height="908" alt="image" src="https://github.com/user-attachments/assets/ad285624-8ad5-4814-9567-408ab88be07d" />
-## Liquidity Page 
-<img width="1620" height="898" alt="image" src="https://github.com/user-attachments/assets/dbcd8256-4391-42d9-830f-809e387ccb89" />
-
-
-## 🧪 CI/CD (GitHub Actions — `.github/workflows/`)
-
-| Workflow | Trigger | Steps |
-|---|---|---|
-| **`ci.yml`** | Push / PR to `main` | **contracts job:** `cargo fmt --check` → `cargo test` → `cargo build --target wasm32-unknown-unknown --release` → upload wasm.<br>**frontend job:** `npm ci` → `npm run lint` → `npm run typecheck` → `npm run test:ci` → `npm run build`. Fails on any lint/type/test/build error. |
-| **`deploy.yml`** | Push to `main` + manual dispatch | **deploy-contract:** build wasm → `stellar contract deploy` (factory) on testnet.<br>**deploy-frontend:** `needs: deploy-contract` → `npm run build` with `NEXT_PUBLIC_*` → `vercel deploy --prod`. Deploy steps skip cleanly when secrets are absent. |
-
-
-## Smart Contract Activity 
-<img width="1919" height="906" alt="image" src="https://github.com/user-attachments/assets/e6d9c617-8bef-4212-ae1a-85f7ba733199" />
 
 ## ⚠️ Why CLMM on Stellar
 
