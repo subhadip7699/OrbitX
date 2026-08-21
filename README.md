@@ -8,7 +8,7 @@
 ![Stellar](https://img.shields.io/badge/Built%20on-Stellar-000000?logo=stellar)
 ![Soroban](https://img.shields.io/badge/Smart%20Contracts-Soroban-blueviolet)
 ![React](https://img.shields.io/badge/Frontend-React%20%2B%20TypeScript-61DAFB?logo=react)
-![Status](https://img.shields.io/badge/Status-Level%203%20Complete-orange)
+![Status](https://img.shields.io/badge/Status-Level%205%20Complete-blue)
 
 </div>
 
