@@ -33,12 +33,12 @@ A CLMM DEX allows Liquidity Providers (LPs) to deposit liquidity into **discrete
 | 📜 **Contract Address (Testnet)** | `CCYBX2FOT5RWL6T2CQROAA3ZECYNNE3PSJ7WQXULU6AJOCCK6YHSTH32` |
 | 🔍 **Proof of 62+ Wallet Interactions** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCYBX2FOT5RWL6T2CQROAA3ZECYNNE3PSJ7WQXULU6AJOCCK6YHSTH32) |
 | 🔗 **Proof of 105+ On-Chain Position Manager Interactions** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CC6IBQ7VNVK7CQYIZX47NJPDH5DL5ISQSA26BLBZXVMVEQ3QGUAZDREI) |
-| 📝 **User Feedback** | [View Spreadsheet](https://docs.google.com/spreadsheets/d/1Wiyhyp5v6rL02uJWgC61gmYGV2KzKw5G1KIe3Ec0NpM/edit?usp=sharing) |
+| 📝 **User Feedback** | [View Spreadsheet](https://docs.google.com/forms/d/e/1FAIpQLScTkj6G92HcakC-6pbRIUB4GdZfGSxwaEjSlegb8Z3WHMhk1g/viewform) |
 | 📊 **Monitoring & Analytics Dashboard** | [/monitoring & Analytics](#monitoring-dashboard) |
 | 📝 **Smart Contract Activity (62+ Wallet)** | [/Smart Contract Activity](#smart-contract-activity) |
 
 ---
-### 📈 Solid Evidence of Continuous OrbitX Growth [check it ](#-105-on-chain-transactions)
+### 📈 Solid Evidence of Continuous OrbitX Growth [Check it ](#-105-on-chain-transactions)
 
 OrbitX is showing clear and measurable growth through **105+ on-chain transactions** and **62+ smart contract + wallet interactions on Stellar Testnet**. This activity demonstrates that the platform is not only being actively tested and used, but is also continuously evolving through real blockchain interactions.
 
@@ -158,7 +158,19 @@ Key improvements include:
 - 📱 **Responsive UI Improvements** — Refined layouts, spacing, navigation, component sizing, and mobile behavior across different screen sizes.
 
 > **15 selected user feedback points were directly mapped to implemented improvements and verifiable Git commits**, demonstrating continuous feedback-driven development throughout OrbitX.
+## 🚀 Next Phase — Roadmap Based on User Feedback
 
+Based on feedback collected from OrbitX testnet users, the next development
+phase will focus on improving reliability, accessibility and liquidity management.
+
+| Feedback Theme | Next Improvement | Priority |
+|---|---|---|
+| Wallet connection delays | Improve Freighter connection/retry states | High |
+| Users want more wallet options | Evaluate additional Stellar wallets | Medium |
+| Mobile quote latency | Optimize RPC/query caching | High |
+| More asset support requested | Expand beyond XLM/USDC pools | High |
+| Beginners need more guidance | Expand interactive LP education | Medium |
+| Better transaction visibility | Improve real-time transaction status | High |
 
 ## 📱 Mobile Responsive
 
@@ -198,7 +210,41 @@ Key improvements include:
 
 
 
+### 📌📈 Growth Strategy Summary
 
+OrbitX’s growth strategy focuses on validating the protocol with real Stellar Testnet users, improving the product through continuous feedback, and gradually expanding adoption across the Stellar and broader Web3 ecosystem.
+
+Key growth priorities include:
+
+- 👥 **Testnet User Validation** — Continue onboarding real Stellar Testnet users and validating OrbitX through actual XLM/USDC swaps, liquidity activity, and user feedback.
+- 🔄 **Feedback-Driven Iteration** — Use recurring feedback around wallet UX, slippage, liquidity ranges, onboarding, transaction status, and mobile usability to guide product improvements.
+- 🌐 **Stellar Community Growth** — Increase visibility through Stellar communities, Web3 events, hackathons, ecosystem demos, and developer-focused initiatives.
+- 💧 **Liquidity Provider Onboarding** — Educate users around CLMM strategies, liquidity ranges, and capital efficiency to attract more active liquidity providers.
+- 🤝 **Community & Ecosystem Partnerships** — Collaborate with DeFi projects, developers, communities, and ecosystem contributors to expand OrbitX adoption.
+- 🪙 **Asset & Pool Expansion** — Grow beyond the initial XLM/USDC market by supporting additional Stellar assets and liquidity pools.
+- 🧩 **Protocol Integrations** — Enable other Stellar applications and developers to interact with OrbitX liquidity through future APIs, SDKs, and integrations.
+- 🚀 **Long-Term Ecosystem Positioning** — Build OrbitX toward becoming a scalable concentrated-liquidity layer for the Stellar DeFi ecosystem.
+
+---
+
+### 📌🛣️ Future Roadmap Summary
+
+OrbitX’s roadmap focuses on strengthening the current CLMM experience first, then expanding protocol capabilities, liquidity infrastructure, and advanced DeFi functionality toward future Stellar mainnet readiness.
+
+Key roadmap priorities include:
+
+- 🛡️ **CLMM Stability & Reliability** — Improve smart-contract stability, transaction execution, slippage handling, validation, and overall protocol reliability.
+- 📘 **Better User Onboarding** — Continue simplifying liquidity ranges, swaps, wallet interactions, and CLMM concepts for new and non-technical users.
+- 📊 **Advanced LP Analytics** — Add deeper insights into liquidity positions, active ranges, portfolio performance, fees, and historical activity.
+- 🪙 **More Stellar Asset Pools** — Expand OrbitX beyond XLM/USDC with additional Stellar-native and ecosystem asset pairs.
+- 🔄 **Position Management** — Introduce more advanced liquidity-position functionality, including improved management and future position transfers.
+- 📡 **TWAP & Pricing Infrastructure** — Integrate TWAP-based oracle support for more reliable pricing and protocol-level market data.
+- 🛣️ **Multi-Hop Routing** — Enable swaps across multiple liquidity pools to improve execution and asset connectivity.
+- ⚙️ **Automated Liquidity Strategies** — Explore auto-rebalancing and smarter liquidity-management strategies for LPs.
+- 🏛️ **Protocol Governance & Fees** — Develop sustainable protocol-fee mechanisms and explore community-driven governance.
+- 🔐 **Security & Mainnet Readiness** — Strengthen testing, security reviews, audits, and infrastructure before progressing toward Stellar mainnet deployment.
+
+  
 | Page | What it does |
 |---|---|
 | **Swap** | Trade XLM ↔ USDC. Auto-routing, slippage control, real-time price impact. |
