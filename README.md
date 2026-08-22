@@ -38,6 +38,15 @@ A CLMM DEX allows Liquidity Providers (LPs) to deposit liquidity into **discrete
 | 📝 **Smart Contract Activity (62+ Wallet)** | [/Smart Contract Activity](#smart-contract-activity) |
 
 ---
+## 📚 Documentation
+
+| Document                                                                               | Description                                                                                     |
+| :------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
+| [README.md](https://github.com/subhadip7699/OrbitX/blob/main/README.md)             | Complete project overview, features, architecture, deployment, testing, and submission evidence |
+| [FEEDBACK.md](https://github.com/subhadip7699/OrbitX/blob/main/Docs/FEEDBACK.md)         | User testing, feedback, and feedback-driven product improvements                                |
+| [OrbitX(Responses).xlsx](https://github.com/subhadip7699/OrbitX/blob/main/Docs/OrbitX(Responses).xlsx)         | Complete 50+ user onboareded For OrbitX Platform                            |
+
+
 ### 📈 Solid Evidence of Continuous OrbitX Growth [Check it ](#-105-on-chain-transactions)
 
 OrbitX is showing clear and measurable growth through **105+ on-chain transactions** and **62+ smart contract + wallet interactions on Stellar Testnet**. This activity demonstrates that the platform is not only being actively tested and used, but is also continuously evolving through real blockchain interactions.
