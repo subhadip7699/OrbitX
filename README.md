@@ -63,7 +63,7 @@ All required Level 5 deliverables have been completed and verified below.
 
 | Requirement | Status | Evidence / Verification |
 | :--- | :---: | :--- |
-| **20+ Meaningful Git Commits** | ✅ Complete | **32+ meaningful commits** — verify using `git log --oneline` |
+| **20+ Meaningful Git Commits** | ✅ Complete | **40+ meaningful commits** — verify using `git log --oneline` |
 | **Live Deployed Application** | ✅ Complete | 🌐 [https://orbit-x-two.vercel.app/](https://orbit-x-two.vercel.app//) |
 | **Project Presentation / Pitch Deck** | ✅ Complete | 📊 [View Presentation](https://docs.google.com/presentation/d/13Z6L9LrM0MLGHflrb1DKOr9K0YOLvkTO/edit?usp=sharing&ouid=113832149611023795918&rtpof=true&sd=true) |
 | **Demo Video** | ✅ Complete | 🎥 [Watch Demo Video](https://drive.google.com/file/d/1t2fU7E7AqFaGoWMrFVGRmSH8xdBBTyz8/view?usp=sharing) |
